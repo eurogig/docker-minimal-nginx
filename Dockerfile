@@ -7,6 +7,7 @@ RUN apk add --update nginx && rm -rf /var/cache/apk/*
 COPY nginx.non-root.conf /etc/nginx/nginx.conf
 COPY index.html /usr/share/nginx/html/index.html
 
+RUN apk add --no-cache ca-certificates && update-ca-certificates
 ADD https://get.aquasec.com/microscanner .
 RUN chmod +x microscanner
 RUN ./microscanner YWY1NTdkOWJkOTI0
