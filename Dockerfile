@@ -7,6 +7,10 @@ RUN apk add --update nginx && rm -rf /var/cache/apk/*
 COPY nginx.non-root.conf /etc/nginx/nginx.conf
 COPY index.html /usr/share/nginx/html/index.html
 
+ADD https://get.aquasec.com/microscanner .
+RUN chmod +x microscanner
+RUN ./microscanner YWY1NTdkOWJkOTI0
+
 EXPOSE 8080
 VOLUME ["/usr/share/nginx/html"]
 
